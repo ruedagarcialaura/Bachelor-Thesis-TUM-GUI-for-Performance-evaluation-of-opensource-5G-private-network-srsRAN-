@@ -39,7 +39,7 @@ result_label2 = ttk.Label(window, text="")
 result_label2.grid(row=3, column=1, padx=20, pady=20)
 
 
-#u
+
 
 # Create a function to run the iperf3 command with UDP
 def iperf3():
