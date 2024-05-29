@@ -162,3 +162,5 @@ Para realizar las mediciones de latencia, throughput, packet loss e inter-arriva
    - Usar crontab para programar la ejecución de scripts.
 
 Este procedimiento te permitirá obtener las mediciones necesarias para tu trabajo de fin de grado, con herramientas ampliamente usadas en la industria y métodos de análisis robustos.
+
+g
