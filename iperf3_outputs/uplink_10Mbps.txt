@@ -1,0 +1,313 @@
+
+2024-06-18 14:59:18
+
+
+iperf Done.
+
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.26 port 55105 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   1.00-2.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   2.00-3.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   3.00-4.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   4.00-5.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   5.00-6.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   6.00-7.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   7.00-8.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   8.00-9.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   9.00-10.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  10.00-11.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  11.00-12.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  12.00-13.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  13.00-14.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  14.00-15.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  15.00-16.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  16.00-17.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  17.00-18.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  18.00-19.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  19.00-20.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  23.8 MBytes  10.0 Mbits/sec  0.000 ms  0/18546 (0%)  sender
+
+
+2024-06-18 14:59:18
+[  5]   0.00-20.80  sec  8.24 MBytes  3.33 Mbits/sec  0.685 ms  12129/18542 (65%)  receiver
+
+
+2024-06-18 16:25:02
+
+
+iperf Done.
+
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.29 port 45804 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   1.00-2.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   2.00-3.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   3.00-4.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   4.00-5.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   5.00-6.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   6.00-7.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   7.00-8.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   8.00-9.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   9.00-10.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  10.00-11.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  11.00-12.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  12.00-13.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  13.00-14.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  14.00-15.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  15.00-16.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  16.00-17.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  17.00-18.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  18.00-19.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  19.00-20.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  23.8 MBytes  10.0 Mbits/sec  0.000 ms  0/18546 (0%)  sender
+
+
+2024-06-18 16:25:02
+[  5]   0.00-20.88  sec  8.29 MBytes  3.33 Mbits/sec  1.069 ms  12095/18541 (65%)  receiver
+
+
+2024-06-18 16:25:20
+
+
+iperf Done.
+
+
+
+2024-06-18 16:28:20
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.30 port 59519 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   1.00-2.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   2.00-3.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   3.00-4.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   4.00-5.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   5.00-6.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   6.00-7.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   7.00-8.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   8.00-9.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   9.00-10.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  10.00-11.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  11.00-12.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  12.00-13.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  13.00-14.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  14.00-15.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  15.00-16.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  16.00-17.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  17.00-18.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  18.00-19.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  19.00-20.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  23.8 MBytes  10.0 Mbits/sec  0.000 ms  0/18546 (0%)  sender
+
+
+2024-06-18 16:28:20
+[  5]   0.00-20.88  sec  7.30 MBytes  2.93 Mbits/sec  0.818 ms  12860/18541 (69%)  receiver
+
+
+2024-06-18 16:28:47
+
+
+iperf Done.
+
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.30 port 50666 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   1.00-2.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   2.00-3.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   3.00-4.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   4.00-5.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   5.00-6.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   6.00-7.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   7.00-8.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   8.00-9.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   9.00-10.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  10.00-11.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  11.00-12.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  12.00-13.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  13.00-14.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  14.00-15.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  15.00-16.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  16.00-17.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  17.00-18.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  18.00-19.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  19.00-20.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  23.8 MBytes  10.0 Mbits/sec  0.000 ms  0/18546 (0%)  sender
+
+
+2024-06-18 16:28:47
+[  5]   0.00-21.49  sec  6.92 MBytes  2.70 Mbits/sec  0.991 ms  13158/18541 (71%)  receiver
+
+
+2024-06-18 16:29:51
+
+
+iperf Done.
+
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.30 port 42912 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   1.00-2.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   2.00-3.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   3.00-4.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   4.00-5.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   5.00-6.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   6.00-7.00   sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]   7.00-8.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   8.00-9.00   sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]   9.00-10.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  10.00-11.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  11.00-12.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  12.00-13.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  13.00-14.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  14.00-15.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  15.00-16.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  16.00-17.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+[  5]  17.00-18.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  18.00-19.00  sec  1.19 MBytes  10.0 Mbits/sec  927  
+
+[  5]  19.00-20.00  sec  1.19 MBytes  10.0 Mbits/sec  928  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  23.8 MBytes  10.0 Mbits/sec  0.000 ms  0/18546 (0%)  sender
+
+
+2024-06-18 16:29:51
+[  5]   0.00-20.79  sec  6.32 MBytes  2.55 Mbits/sec  0.999 ms  13624/18543 (73%)  receiver
+

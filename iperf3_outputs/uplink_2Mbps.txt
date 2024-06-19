@@ -1,0 +1,302 @@
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.24 port 52350 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   1.00-2.00   sec   244 KBytes  1.99 Mbits/sec  185  
+
+[  5]   2.00-3.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   3.00-4.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   4.00-5.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   5.00-6.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   6.00-7.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   7.00-8.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   8.00-9.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   9.00-10.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  10.00-11.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  11.00-12.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  12.00-13.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  13.00-14.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  14.00-15.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  15.00-16.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  16.00-17.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  17.00-18.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  18.00-19.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  19.00-20.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  4.77 MBytes  2.00 Mbits/sec  0.000 ms  0/3710 (0%)  sender
+
+[  5]   0.00-20.22  sec  4.77 MBytes  1.98 Mbits/sec  1.066 ms  0/3710 (0%)  receiver
+
+
+2024-06-18 16:30:19
+
+
+iperf Done.
+
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.30 port 58048 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   1.00-2.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   2.00-3.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   3.00-4.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   4.00-5.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   5.00-6.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   6.00-7.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   7.00-8.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   8.00-9.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   9.00-10.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  10.00-11.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  11.00-12.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  12.00-13.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  13.00-14.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  14.00-15.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  15.00-16.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  16.00-17.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  17.00-18.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  18.00-19.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  19.00-20.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  4.77 MBytes  2.00 Mbits/sec  0.000 ms  0/3710 (0%)  sender
+
+
+2024-06-18 16:30:19
+[  5]   0.00-20.16  sec  4.77 MBytes  1.98 Mbits/sec  0.763 ms  0/3709 (0%)  receiver
+
+
+2024-06-18 16:30:45
+
+
+iperf Done.
+
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.30 port 37315 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   1.00-2.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   2.00-3.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   3.00-4.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   4.00-5.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   5.00-6.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   6.00-7.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   7.00-8.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   8.00-9.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   9.00-10.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  10.00-11.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  11.00-12.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  12.00-13.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  13.00-14.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  14.00-15.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  15.00-16.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  16.00-17.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  17.00-18.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  18.00-19.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  19.00-20.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  4.77 MBytes  2.00 Mbits/sec  0.000 ms  0/3710 (0%)  sender
+
+
+2024-06-18 16:30:45
+[  5]   0.00-20.07  sec  4.77 MBytes  1.99 Mbits/sec  1.593 ms  0/3709 (0%)  receiver
+
+
+2024-06-18 16:31:38
+
+
+iperf Done.
+
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.30 port 35085 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   1.00-2.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   2.00-3.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   3.00-4.00   sec   244 KBytes  1.99 Mbits/sec  185  
+
+[  5]   4.00-5.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   5.00-6.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   6.00-7.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   7.00-8.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   8.00-9.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   9.00-10.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  10.00-11.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  11.00-12.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  12.00-13.00  sec   244 KBytes  1.99 Mbits/sec  185  
+
+[  5]  13.00-14.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  14.00-15.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  15.00-16.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  16.00-17.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  17.00-18.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  18.00-19.00  sec   244 KBytes  1.99 Mbits/sec  185  
+
+[  5]  19.00-20.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  4.77 MBytes  2.00 Mbits/sec  0.000 ms  0/3710 (0%)  sender
+
+
+2024-06-18 16:31:38
+[  5]   0.00-20.07  sec  4.77 MBytes  1.99 Mbits/sec  2.131 ms  0/3709 (0%)  receiver
+
+
+2024-06-18 16:32:04
+
+
+iperf Done.
+
+Connecting to host 10.45.0.1, port 5201
+
+[  5] local 10.45.0.30 port 53759 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Total Datagrams
+
+[  5]   0.00-1.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   1.00-2.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   2.00-3.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   3.00-4.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   4.00-5.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   5.00-6.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   6.00-7.00   sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]   7.00-8.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   8.00-9.00   sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]   9.00-10.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  10.00-11.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  11.00-12.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  12.00-13.00  sec   244 KBytes  1.99 Mbits/sec  185  
+
+[  5]  13.00-14.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  14.00-15.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  15.00-16.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  16.00-17.00  sec   244 KBytes  2.00 Mbits/sec  185  
+
+[  5]  17.00-18.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+[  5]  18.00-19.00  sec   244 KBytes  1.99 Mbits/sec  185  
+
+[  5]  19.00-20.00  sec   245 KBytes  2.01 Mbits/sec  186  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.00  sec  4.77 MBytes  2.00 Mbits/sec  0.000 ms  0/3710 (0%)  sender
+
+
+2024-06-18 16:32:04
+[  5]   0.00-20.12  sec  4.77 MBytes  1.99 Mbits/sec  1.154 ms  0/3709 (0%)  receiver
+
