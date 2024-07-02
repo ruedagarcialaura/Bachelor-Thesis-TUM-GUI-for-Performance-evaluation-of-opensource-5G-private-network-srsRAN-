@@ -54,3 +54,183 @@ Reverse mode, remote host 10.45.0.1 is sending
 
 [  5]   0.00-20.00  sec  2.39 MBytes  1.00 Mbits/sec  1.969 ms  0/1858 (0%)  receiver
 
+
+2024-06-19 12:38:09
+Connecting to host 10.45.0.1, port 5201
+
+Reverse mode, remote host 10.45.0.1 is sending
+
+[  5] local 10.45.0.37 port 46642 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-1.00   sec   124 KBytes  1.01 Mbits/sec  2.425 ms  0/94 (0%)  
+
+[  5]   1.00-2.00   sec   121 KBytes   992 Kbits/sec  2.443 ms  0/92 (0%)  
+
+[  5]   2.00-3.00   sec   122 KBytes  1.00 Mbits/sec  2.684 ms  0/93 (0%)  
+
+[  5]   3.00-4.00   sec   122 KBytes  1.00 Mbits/sec  1.788 ms  0/93 (0%)  
+
+[  5]   4.00-5.00   sec   122 KBytes  1.00 Mbits/sec  1.674 ms  0/93 (0%)  
+
+[  5]   5.00-6.00   sec   120 KBytes   981 Kbits/sec  2.536 ms  0/91 (0%)  
+
+[  5]   6.00-7.00   sec   124 KBytes  1.01 Mbits/sec  1.897 ms  0/94 (0%)  
+
+[  5]   7.00-8.00   sec   121 KBytes   992 Kbits/sec  8.405 ms  0/92 (0%)  
+
+[  5]   8.00-9.00   sec   122 KBytes  1.00 Mbits/sec  1.940 ms  0/93 (0%)  
+
+[  5]   9.00-10.00  sec   122 KBytes  1.00 Mbits/sec  2.374 ms  0/93 (0%)  
+
+[  5]  10.00-11.00  sec   122 KBytes  1.00 Mbits/sec  1.737 ms  0/93 (0%)  
+
+[  5]  11.00-12.00  sec   121 KBytes   992 Kbits/sec  1.655 ms  0/92 (0%)  
+
+[  5]  12.00-13.00  sec  68.5 KBytes   561 Kbits/sec  18.504 ms  11/63 (17%)  
+
+[  5]  13.00-14.00  sec  97.4 KBytes   798 Kbits/sec  21.157 ms  25/99 (25%)  
+
+[  5]  14.00-15.00  sec  80.3 KBytes   658 Kbits/sec  21.716 ms  20/81 (25%)  
+
+[  5]  15.00-16.00  sec   140 KBytes  1.14 Mbits/sec  10.014 ms  10/116 (8.6%)  
+
+[  5]  16.00-17.00  sec  59.2 KBytes   485 Kbits/sec  16.027 ms  7/52 (13%)  
+
+[  5]  17.00-18.00  sec  0.00 Bytes  0.00 bits/sec  16.027 ms  0/0 (0%)  
+
+[  5]  18.00-19.00  sec  0.00 Bytes  0.00 bits/sec  16.027 ms  0/0 (0%)  
+
+[  5]  19.00-19.82  sec  0.00 Bytes  0.00 bits/sec  16.027 ms  0/0 (0%)  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-19.82  sec  0.00 Bytes  0.00 bits/sec  0.000 ms  0/0 (0%)  sender
+
+
+2024-06-19 12:38:09
+[  5]   0.00-19.82  sec  1.87 MBytes   789 Kbits/sec  16.027 ms  73/1524 (4.8%)  receiver
+
+
+2024-06-19 15:17:48
+Connecting to host 10.45.0.1, port 5201
+
+Reverse mode, remote host 10.45.0.1 is sending
+
+[  5] local 10.45.0.42 port 57372 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-1.00   sec   128 KBytes  1.05 Mbits/sec  2.452 ms  0/97 (0%)  
+
+[  5]   1.00-2.00   sec   138 KBytes  1.13 Mbits/sec  2.299 ms  2/107 (1.9%)  
+
+[  5]   2.00-3.00   sec   121 KBytes   992 Kbits/sec  1.745 ms  0/92 (0%)  
+
+[  5]   3.00-4.00   sec   122 KBytes  1.00 Mbits/sec  2.567 ms  0/93 (0%)  
+
+[  5]   4.00-5.00   sec   122 KBytes  1.00 Mbits/sec  2.198 ms  0/93 (0%)  
+
+[  5]   5.00-6.00   sec   121 KBytes   992 Kbits/sec  1.847 ms  0/92 (0%)  
+
+[  5]   6.00-7.00   sec   122 KBytes  1.00 Mbits/sec  1.429 ms  0/93 (0%)  
+
+[  5]   7.00-8.00   sec   122 KBytes  1.00 Mbits/sec  2.286 ms  0/93 (0%)  
+
+[  5]   8.00-9.00   sec   122 KBytes  1.00 Mbits/sec  2.260 ms  0/93 (0%)  
+
+[  5]   9.00-10.00  sec   121 KBytes   992 Kbits/sec  1.922 ms  0/92 (0%)  
+
+[  5]  10.00-11.00  sec   124 KBytes  1.01 Mbits/sec  2.196 ms  0/94 (0%)  
+
+[  5]  11.00-12.00  sec   121 KBytes   992 Kbits/sec  2.373 ms  0/92 (0%)  
+
+[  5]  12.00-13.00  sec   122 KBytes  1.00 Mbits/sec  2.003 ms  0/93 (0%)  
+
+[  5]  13.00-14.00  sec   121 KBytes   992 Kbits/sec  1.630 ms  0/92 (0%)  
+
+[  5]  14.00-15.00  sec   122 KBytes  1.00 Mbits/sec  1.900 ms  0/93 (0%)  
+
+[  5]  15.00-16.00  sec   122 KBytes  1.00 Mbits/sec  4.521 ms  0/93 (0%)  
+
+[  5]  16.00-17.00  sec   122 KBytes  1.00 Mbits/sec  1.967 ms  0/93 (0%)  
+
+[  5]  17.00-18.00  sec   121 KBytes   992 Kbits/sec  1.735 ms  0/92 (0%)  
+
+[  5]  18.00-19.00  sec   122 KBytes  1.00 Mbits/sec  9.054 ms  0/93 (0%)  
+
+[  5]  19.00-20.00  sec   122 KBytes  1.00 Mbits/sec  7.224 ms  0/93 (0%)  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.23  sec  2.41 MBytes  1.00 Mbits/sec  0.000 ms  0/1876 (0%)  sender
+
+
+2024-06-19 15:17:48
+[  5]   0.00-20.00  sec  2.41 MBytes  1.01 Mbits/sec  7.224 ms  2/1873 (0.11%)  receiver
+
+
+2024-06-26 16:56:25
+Connecting to host 10.45.0.1, port 5201
+
+Reverse mode, remote host 10.45.0.1 is sending
+
+[  5] local 10.45.0.48 port 48279 connected to 10.45.0.1 port 5201
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-1.00   sec   126 KBytes  1.04 Mbits/sec  1.876 ms  0/96 (0%)  
+
+[  5]   1.00-2.00   sec   122 KBytes  1.00 Mbits/sec  2.120 ms  0/93 (0%)  
+
+[  5]   2.00-3.00   sec   121 KBytes   992 Kbits/sec  2.609 ms  0/92 (0%)  
+
+[  5]   3.00-4.00   sec   122 KBytes  1.00 Mbits/sec  5.710 ms  0/93 (0%)  
+
+[  5]   4.00-5.00   sec   122 KBytes  1.00 Mbits/sec  1.800 ms  0/93 (0%)  
+
+[  5]   5.00-6.00   sec   122 KBytes  1.00 Mbits/sec  2.079 ms  0/93 (0%)  
+
+[  5]   6.00-7.00   sec   121 KBytes   992 Kbits/sec  2.786 ms  0/92 (0%)  
+
+[  5]   7.00-8.00   sec   122 KBytes  1.00 Mbits/sec  1.990 ms  0/93 (0%)  
+
+[  5]   8.00-9.00   sec   122 KBytes  1.00 Mbits/sec  1.820 ms  0/93 (0%)  
+
+[  5]   9.00-10.00  sec   121 KBytes   992 Kbits/sec  2.022 ms  0/92 (0%)  
+
+[  5]  10.00-11.00  sec   122 KBytes  1.00 Mbits/sec  2.431 ms  0/93 (0%)  
+
+[  5]  11.00-12.00  sec   122 KBytes  1.00 Mbits/sec  2.131 ms  0/93 (0%)  
+
+[  5]  12.00-13.00  sec   122 KBytes  1.00 Mbits/sec  1.619 ms  0/93 (0%)  
+
+[  5]  13.00-14.00  sec   121 KBytes   992 Kbits/sec  6.417 ms  0/92 (0%)  
+
+[  5]  14.00-15.00  sec   122 KBytes  1.00 Mbits/sec  2.151 ms  0/93 (0%)  
+
+[  5]  15.00-16.00  sec   122 KBytes  1.00 Mbits/sec  2.081 ms  0/93 (0%)  
+
+[  5]  16.00-17.00  sec   122 KBytes  1.00 Mbits/sec  2.874 ms  0/93 (0%)  
+
+[  5]  17.00-18.00  sec   118 KBytes   971 Kbits/sec  2.546 ms  2/92 (2.2%)  
+
+[  5]  18.00-19.00  sec   122 KBytes  1.00 Mbits/sec  1.775 ms  0/93 (0%)  
+
+[  5]  19.00-20.00  sec   122 KBytes  1.00 Mbits/sec  2.163 ms  0/93 (0%)  
+
+- - - - - - - - - - - - - - - - - - - - - - - - -
+
+[ ID] Interval           Transfer     Bitrate         Jitter    Lost/Total Datagrams
+
+[  5]   0.00-20.19  sec  2.41 MBytes  1.00 Mbits/sec  0.000 ms  0/1873 (0%)  sender
+
+
+2024-06-26 16:56:25
+[  5]   0.00-20.00  sec  2.39 MBytes  1.00 Mbits/sec  2.163 ms  2/1858 (0.11%)  receiver
+

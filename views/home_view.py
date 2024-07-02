@@ -14,7 +14,7 @@ class Home_view(tk.Frame):
 
         #self.load_data()
 
-        self.home_view_label = tk.Label(self.frame, text= "Connect to your 5G RAN network via SSH")
+        self.home_view_label = tk.Label(self.frame, text= "Connect to your 5G RAN network via SSH",font=("Helvetica", 16, "bold"), fg="blue")
         self.home_view_label.grid(row=0, column=0, padx=20, pady=20, sticky="ew", columnspan=3)
 
         #username ubuntu
@@ -105,31 +105,6 @@ class Home_view(tk.Frame):
         self.ssh_core = SSHClient("10.162.149.143", 22, "laura", "chaparral")
         self.ssh_core.connect()
         SSHConnections.ssh_core = self.ssh_core
-
-    #def load_data(self):
-     #   try:
-      #      with open('config.json', 'r') as f:
-       #         data = json.load(f)
-        #        self.entry_user.insert(0, data.get('username', ''))
-         #       self.entry_ue_ipv4.insert(0, data.get('ue_ipv4', ''))
-          #      self.entry_ue_ipv4.insert(0, data.get('gnb_ipv4', ''))
-           #     self.entry_ue_ipv4.insert(0, data.get('core_ipv4', ''))
-        #except FileNotFoundError:
-         #   pass 
-
-    #def save_data(self):
-     #   data = {
-      #      'username': self.entry_user.get(),
-       #     'ue_ipv4': self.entry_ue_ipv4.get(),
-        #    'gnb_ipv4': self.entry_gnb_ipv4.get(),
-         #   'core_ipv4': self.entry_core_ipv4.get()
-        #}
-        #try:
-         #   with open('config.json', 'w') as f:
-          #      json.dump(data, f)
-        #except Exception as e:
-         #   print(f"Error saving data: {e}")    
-
 
 
     def on_connect(self):
