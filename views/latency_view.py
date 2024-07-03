@@ -12,20 +12,7 @@ class Latency_view(tk.Frame):
         self.frame.grid()
 
         self.latency_view_label = tk.Label(self.frame, text= "Welcome to the Latency view")
-        self.latency_view_label.grid(row=0, column=0, padx=20, pady=20, sticky="ew", columnspan=2)
-
-        # Combobox para Packet Size
-        self.packet_size_label = tk.Label(self.frame, text="Packet Size")
-        self.packet_size_label.grid(row=2, column=0, padx=20, pady=20, sticky="ew")
-        self.packet_size_combobox = ttk.Combobox(self.frame, values=["256", "1000"])
-        self.packet_size_combobox.grid(row=2, column=1, padx=20, pady=20, sticky="ew")
-
-        # Combobox para Direction
-        self.direction_label = tk.Label(self.frame, text="Direction")
-        self.direction_label.grid(row=3, column=0, padx=20, pady=20, sticky="ew")
-        self.direction_combobox = ttk.Combobox(self.frame, values=["Uplink", "Downlink"])
-        self.direction_combobox.grid(row=3, column=1, padx=20, pady=20, sticky="ew")
-        
+        self.latency_view_label.grid(row=0, column=0, padx=20, pady=20, sticky="ew", columnspan=2)      
 
         self.calculate_button = tk.Button(self.frame, text="Calculate", command=self.calculate)
         self.calculate_button.grid(row=4, column=0, padx=20, pady=20, sticky="ew")
