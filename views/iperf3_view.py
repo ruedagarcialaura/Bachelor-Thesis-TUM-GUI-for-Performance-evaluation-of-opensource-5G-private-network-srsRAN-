@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 import os
 from utils.ssh_connections import SSHConnections
-from utils.ssh import SSHClient
 from tkinter import ttk
 import  threading
 import datetime
@@ -293,11 +292,11 @@ class Iperf3_view(tk.Frame):
             print("No PID found")
             return
         if ssh is SSHConnections.ssh_core:
-            command_core = f"kill -9 {pid}"
+            command_core = f"kill -2 {pid}"
             SSHConnections.ssh_core.execute_command(command_core)
             print(f"tshark on core with PID {pid} stopped")
         elif ssh is SSHConnections.ssh_ue:
-            command_ue = f"kill -9 {pid}"
+            command_ue = f"kill -2 {pid}"
             SSHConnections.ssh_ue.execute_command(command_ue)
             print(f"tshark on UE with PID {pid} stopped")
 
@@ -313,9 +312,10 @@ class Iperf3_view(tk.Frame):
             self.stop_capture_remote(SSHConnections.ssh_ue, self.pid_ue)
             self.stop_capture_remote(SSHConnections.ssh_core, self.pid_core)
             messagebox.showinfo("Success", "Capture stopped")
+
             self.download_file_core(SSHConnections.ssh_core, "core.pcap", os.path.join(folder_name, f"core_{direction}_{bit_rate}Mbps_{packet_size}bytes_{iteration}.pcap"))
             self.download_file_ue(  SSHConnections.ssh_ue,   "ue.pcap",   os.path.join(folder_name, f"ue_{direction}_{bit_rate}Mbps_{packet_size}bytes_{iteration}.pcap"))
-
+            
         except Exception as e:
             messagebox.showerror("Error", str(e))
 

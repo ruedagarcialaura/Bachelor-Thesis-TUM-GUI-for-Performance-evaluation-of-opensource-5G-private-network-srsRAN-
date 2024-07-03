@@ -1,27 +1,20 @@
 import tkinter as tk
-import re
-import os
-import matplotlib.pyplot as plt
 
-class Throughput_view(tk.Frame):
+class GUI_view(tk.Frame):
     def __init__(self, root):
         self.root = root
         
         self.frame = tk.Frame(self.root)
         self.frame.grid()
 
-        self.throughput_view_label = tk.Label(self.frame, text= "Welcome to the Throughput view")
+        self.throughput_view_label = tk.Label(self.frame, text= "Performance Evaluation of srsRAN")
         self.throughput_view_label.grid()
 
-        self.uplink_button = tk.Button(self.frame, text="Plot uplink data", command=self.plot_uplink_data)
+        '''self.uplink_button = tk.Button(self.frame, text="Plot uplink data", command=self.plot_uplink_data)
         self.uplink_button.grid()
 
         self.downlink_button = tk.Button(self.frame, text="Plot downlink data", command=self.plot_downlink_data)
-        self.downlink_button.grid()
-
-        
-
-        
+        self.downlink_button.grid()'''
 
     def show(self):
         self.frame.grid()
@@ -29,7 +22,7 @@ class Throughput_view(tk.Frame):
     def hide(self):
         self.frame.grid_forget()
 
-    def extract_throughput_from_files(self, folder_path):
+    '''def extract_throughput_from_files(self, folder_path):
         throughput_pattern = re.compile(r'(\d+\.\d+|\d+)\s*(K|M|G)bits/sec')
         throughput_data = {'uplink': {1: [], 2: [], 3: [], 5: [], 10: []},
                            'downlink': {1: [], 2: [], 3: [], 5: [], 10: []}}
@@ -59,11 +52,9 @@ class Throughput_view(tk.Frame):
                                # Agregar el valor convertido a la estructura de datos
                                throughput_data[direction][bitrate].append(value)
                                print(f"Extracted throughput: {value} Mbits/sec")
-        return throughput_data
+        return throughput_data'''
                             
-        
-    
-    def plot_uplink_throughput_data(self):
+    '''def plot_uplink_throughput_data(self):
         folder_path = 'iperf3_outputs'
         data = self.extract_throughput_from_files(folder_path)
         num_plots = sum(len(bitrates) for bitrates in data.values())
@@ -83,9 +74,9 @@ class Throughput_view(tk.Frame):
                     plot_index += 1
 
         plt.tight_layout()  # Ajustar los subplots para evitar superposiciones
-        plt.show()
+        plt.show()'''
 
-    def plot_downlink_throughput_data(self):
+    '''def plot_downlink_throughput_data(self):
         folder_path = 'iperf3_outputs'
         data = self.extract_throughput_from_files(folder_path)
         num_plots = sum(len(bitrates) for bitrates in data.values())
@@ -105,12 +96,12 @@ class Throughput_view(tk.Frame):
                     plot_index += 1
 
         plt.tight_layout()  # Ajustar los subplots para evitar superposiciones
-        plt.show()
+        plt.show()'''
 
-    def plot_uplink_data(self):
+    '''def plot_uplink_data(self):
         self.plot_uplink_throughput_data()
         #print(self.extract_throughput_from_files('iperf3_outputs'))
 
     def plot_downlink_data(self):
         self.plot_downlink_throughput_data()
-        #print(self.extract_throughput_from_files('iperf3_outputs'))
+        #print(self.extract_throughput_from_files('iperf3_outputs'))'''

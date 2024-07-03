@@ -1,0 +1,7 @@
+Packet loss for uplink_2Mbps_256bytes_1.pcap
+The number of lost packets is: 12
+The packet loss percentage is: 11.428571428571429%
+
+Packet loss for uplink_2Mbps_256bytes_1.pcap
+The number of lost packets is: 12
+The packet loss percentage is: 11.428571428571429%
