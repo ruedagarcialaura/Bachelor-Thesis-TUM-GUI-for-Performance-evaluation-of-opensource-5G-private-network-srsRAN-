@@ -6,7 +6,7 @@ import tkinter as tk
 from views.GUI_view import GUI_view
 from views.home_view import Home_view
 from views.iperf3_view import Iperf3_view
-from views.latency_view import Latency_view
+from views.calculations_view import Calculations_view
 from views.results_view import Results_view
 from views.packet_loss_view import Packet_loss_view
 
@@ -14,7 +14,6 @@ from views.graph import Wireshark_capture
 
 
 class GUI:
-    #Constructor: define la estructura básica de la GUI, con un frame(marco principal) y botones para cambiar de vista
     def __init__(self, root):
         self.root = root
         self.root.columnconfigure(0, weight=1)  # Hace que la columna central se expanda
@@ -34,18 +33,18 @@ class GUI:
         self.button2.grid(row=0, column=1, padx=0, pady=0, sticky="nsew")
         self.button3 = tk.Button(self.frame, text="Capture  traffic", command=self.show_iperf3_view)
         self.button3.grid(row=0, column=2, padx=0, pady=0, sticky="nsew")
-        self.button4 = tk.Button(self.frame, text="Calculations", command=self.show_latency_view)
+        self.button4 = tk.Button(self.frame, text="Calculations", command=self.show_calculations_view)
         self.button4.grid(row=0, column=3, padx=0, pady=0, sticky="nsew")
         self.button5 = tk.Button(self.frame, text="Results", command=self.show_results_view)
         self.button5.grid(row=0, column=4, padx=0, pady=0, sticky="nsew")
-        self.button6 = tk.Button(self.frame, text="Packet Loss", command=self.show_packet_loss_view)
-        self.button6.grid(row=0, column=5, padx=0, pady=0, sticky="nsew")
+        #self.button6 = tk.Button(self.frame, text="Packet Loss", command=self.show_packet_loss_view)
+        #self.button6.grid(row=0, column=5, padx=0, pady=0, sticky="nsew")
         
         
         
         # Create the views
         self.home_view = Home_view(self.root)
-        self.latency_view = Latency_view(self.root)
+        self.calculations_view = Calculations_view(self.root)
         self.GUI_view = GUI_view(self.root)
         self.iperf3_view = Iperf3_view(self.root)
         self.results_view = Results_view(self.root)
@@ -70,9 +69,9 @@ class GUI:
         self.hide_all_views()
         self.iperf3_view.show()
 
-    def show_latency_view(self):
+    def show_calculations_view(self):
         self.hide_all_views()
-        self.latency_view.show()
+        self.calculations_view.show()
 
     def show_results_view(self):
         self.hide_all_views()
@@ -86,7 +85,7 @@ class GUI:
         self.GUI_view.hide()
         self.home_view.hide()
         self.iperf3_view.hide()
-        self.latency_view.hide()
+        self.calculations_view.hide()
         self.results_view.hide()
         self.packet_loss_view.hide()
 

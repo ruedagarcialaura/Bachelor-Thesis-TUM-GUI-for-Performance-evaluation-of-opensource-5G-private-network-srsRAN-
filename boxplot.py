@@ -1,9 +1,104 @@
+import tkinter as tk
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
-
 import matplotlib.pyplot as plt
 
-
+# Generate dummy data
 data1 = [
+    649.6714153011233, 586.1735698828816, 664.7688538100692, 752.3029856408025,
+    # ... rest of the data
+]
+
+data2 = [
+    # Add your second set of data here
+    649.6714153011233, 586.1735698828816, 664.7688538100692, 752.3029856408025,
+    
+]
+
+data3 = [
+    # Add your second set of data here
+    649.6714153011233, 586.1735698828816, 664.7688538100692, 752.3029856408025,
+    
+]
+
+# Create the main window
+window = tk.Tk()
+
+
+# Add your GUI elements here
+
+
+# Create box plots for both data sets
+
+
+# Create a canvas to display the plot
+
+# Create three more figures and axes
+# Create a figure and axis
+fig, ax = plt.subplots()
+fig2, ax2 = plt.subplots()
+fig3, ax3 = plt.subplots()
+fig4, ax4 = plt.subplots()
+
+# Create box plots for the additional data sets
+ax.boxplot([data1, data2, data3])
+ax2.boxplot([data1, data2, data3])
+ax3.boxplot([data1, data2, data3])
+ax4.boxplot([data1, data2,  data3])
+
+
+
+ax.set_title('Latency')
+ax2.set_title('Packet Loss')
+ax3.set_title('Throughput')
+ax4.set_title('Inter Sending Time')
+
+ax.set_ylabel('(ms)')
+ax2.set_ylabel('(%)')
+ax3.set_ylabel('(Mbps)')
+ax4.set_ylabel('(ms)')
+
+# Add labels and title
+# Custom labels for the x-axis
+labels = ['1 Mbps', '5 Mbps', '10 Mbps']
+
+# Set the position of the ticks first
+ax.set_xticks([1, 2, 3])
+
+# Then set the custom labels
+ax.set_xticklabels(labels)
+ax2.set_xticklabels(labels)
+ax3.set_xticklabels(labels)
+ax4.set_xticklabels(labels)
+
+
+
+canvas1 = FigureCanvasTkAgg(fig, master=window)  # Assuming canvas1 and fig1 are defined somewhere above
+canvas1.draw()
+canvas1.get_tk_widget().grid(row=0, column=0, sticky="nsew")
+
+canvas2 = FigureCanvasTkAgg(fig2, master=window)
+canvas2.draw()
+canvas2.get_tk_widget().grid(row=0, column=1, sticky="nsew")
+
+canvas3 = FigureCanvasTkAgg(fig3, master=window)
+canvas3.draw()
+canvas3.get_tk_widget().grid(row=1, column=0, sticky="nsew")
+
+canvas4 = FigureCanvasTkAgg(fig4, master=window)
+canvas4.draw()
+canvas4.get_tk_widget().grid(row=1, column=1, sticky="nsew")
+
+# Configure the grid to expand equally
+window.grid_rowconfigure(0, weight=1)
+window.grid_rowconfigure(1, weight=1)
+window.grid_columnconfigure(0, weight=1)
+window.grid_columnconfigure(1, weight=1)
+
+# Start the main event loop
+window.mainloop()
+
+'''data1 = [
     22.215604782104492,
     151.0751247406006,
     212.07904815673828,
@@ -92,25 +187,5 @@ data1 = [
     203.99904251098633,
     203.01318168640137,
     202.07881927490234
-]
+]'''
 
-
-data2 = [
-    # Add your second set of data here
-    649.6714153011233, 586.1735698828816, 664.7688538100692, 752.3029856408025,
-    
-]
-
-# Create a figure and axis
-fig, ax = plt.subplots()
-
-# Create box plots for both data sets
-ax.boxplot([data1])
-
-# Add labels and title
-ax.set_xlabel('Data')
-ax.set_ylabel('Values')
-ax.set_title('Box Plots')
-
-# Display the plot
-plt.show()
