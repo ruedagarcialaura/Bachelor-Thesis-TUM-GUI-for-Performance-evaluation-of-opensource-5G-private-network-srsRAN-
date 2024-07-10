@@ -16,115 +16,102 @@ class Iperf3_view(tk.Frame):
         #Acumulator to save the outputs of iperf3
         self.iperf_output_accumulator = ""
 
-        #Title of the view
+        #CATURE TRAFFIC WITH WIRESHARK
         self.capture_traffic_title = tk.Label(self.frame, text="Capture traffic with Wireshark", font=("Helvetica", 16, "bold"), fg="blue")
         self.capture_traffic_title.grid(row=0, column=0, columnspan=10, sticky="ew")
-
-        # Interfaz de red
-        self.entry_label_interface_ue = tk.Label(self.frame, text="                                                                             UE Interface:")  # enp1s0 or tun_srsue
-        self.entry_label_interface_ue.grid(row=1, column=3)
-
+        #Interfaces
+        self.entry_label_interface_ue = tk.Label(self.frame, text="UE Interface:")  # enp1s0 or tun_srsue
+        self.entry_label_interface_ue.grid(row=1, column=0)
         self.entry_interface_ue = tk.Entry(self.frame)
-        self.entry_interface_ue.grid(row=1, column=4)
-
-        self.entry_label_interface_core = tk.Label(self.frame, text="                                                                           Core Interface:")  # enp0s31f6 or ogstun
-        self.entry_label_interface_core.grid(row=2, column=3)
-
+        self.entry_interface_ue.grid(row=1, column=1)
+        self.entry_label_interface_core = tk.Label(self.frame, text="Core Interface:")  # enp0s31f6 or ogstun
+        self.entry_label_interface_core.grid(row=1, column=2)
         self.entry_interface_core = tk.Entry(self.frame)
-        self.entry_interface_core.grid(row=2, column=4)
-
-        # Botón para iniciar la captura
+        self.entry_interface_core.grid(row=1, column=4)
+        # Start capture button
         self.capture_button = tk.Button(self.frame, text="Begin to capture", command=self.start_capture)
-        self.capture_button.grid(row=1, column=6)
-
-        # Botón para parar la captura
+        self.capture_button.grid(row=1, column=5)
+        # Stop capture button
         self.stop_button = tk.Button(self.frame, text="Stop capture", command=self.stop_capture_async)
-        self.stop_button.grid(row=1, column=7)
+        self.stop_button.grid(row=1, column=6)
 
-        # Separador horizontal
+        # Horizontal Separator
         self.separator_horizontal = ttk.Separator(self.frame, orient='horizontal')
         self.separator_horizontal.grid(row=3, column=0, columnspan=10, sticky='ew', pady=10)
  
 
-        # Título para la sección de generación de tráfico
+        #IPERF3 TRAFFIC GENERATION
         self.generate_traffic_title = tk.Label(self.frame, text="Generate traffic with iperf3", font=("Helvetica", 16, "bold"), fg="blue")
         self.generate_traffic_title.grid(row=4, column=0, columnspan=10, sticky="ew")
+        #Bitrate 
+        self.entry_label_bitrate_client = tk.Label(self.frame, text="Sending bit rate in Mbps:")
+        self.entry_label_bitrate_client.grid(row=5, column=0, padx=20, pady=20, sticky="nsew")
+        bitrate_options = ["3", "4", "5", "10"]
+        self.entry_bitrate_client = ttk.Combobox(self.frame, values=bitrate_options)
+        self.entry_bitrate_client.grid(row=5, column=1, padx=20, pady=20, sticky="nsew")
+        self.entry_bitrate_client.set("10")
+        #Iteration
+        iterations = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        self.entry_iteration = ttk.Combobox(self.frame, values=iterations)
+        self.entry_iteration.grid(row=5, column=6, padx=20, pady=20, sticky="nsew")
+        self.entry_iteration.set("1")
+        #Packet size
+        self.packet_size_label = tk.Label(self.frame, text="Packet size in bytes:")
+        self.packet_size_label.grid(row=5, column=2, padx=20, pady=20, sticky="nsew")
+        packet_size_options = ["1300"]
+        self.entry_packet_size = ttk.Combobox(self.frame, values=packet_size_options)
+        self.entry_packet_size.grid(row=5, column=4, padx=20, pady=20, sticky="nsew")
+        self.entry_packet_size.set("1300") 
+        #Downlink/Uplink traffic options
+        self.reverse_mode_var = tk.IntVar()
+        self.reverse_mode_checkbox = tk.Checkbutton(self.frame, text="Downlink Traffic", variable=self.reverse_mode_var, onvalue=1, offvalue=0, width=20)
+        self.reverse_mode_checkbox.grid(row=5, column=5, padx=10, pady=20, sticky="ew")
+
+        #2nd Horizontal Separator
+        self.separator_horizontal = ttk.Separator(self.frame, orient='horizontal')
+        self.separator_horizontal.grid(row=6, column=0, columnspan=10, sticky='ew', pady=10)
 
         #SERVER SIDE
 
         #Server IP address
-        self.entry_label_iperf_server = tk.Label(self.frame, text="Enter the IP address of the server for iperf3:")
-        self.entry_label_iperf_server.grid(row=5, column=3, padx=20, pady=20, sticky="nsew", columnspan=2)
+        self.entry_label_iperf_server = tk.Label(self.frame, text="IP address of the server for iperf3:")
+        self.entry_label_iperf_server.grid(row=7, column=0, padx=20, pady=20, sticky="nsew", columnspan=1)
         self.entry_ip_server = tk.Entry(self.frame)
-        self.entry_ip_server.grid(row=6, column=3, padx=20, pady=20, sticky="nsew", columnspan=2)    
-        
+        self.entry_ip_server.grid(row=7, column=1, padx=20, pady=20, sticky="nsew", columnspan=2)    
         #start server
         self.iperf_server_button = tk.Button(self.frame, text="Start Server", command=self.iperf3_server_ssh, width=20)
-        self.iperf_server_button.grid(row=7, column=3, padx=20, pady=20, sticky="ew")
-       
+        self.iperf_server_button.grid(row=8, column=0, padx=20, pady=20, sticky="ew")
         #stop server
         self.iperf_server_button = tk.Button(self.frame, text="Stop Server", command=self.stop_iperf3_server, width=20)
-        self.iperf_server_button.grid(row=7, column=4, padx=20, pady=20, sticky="ew")
-
-
+        self.iperf_server_button.grid(row=8, column=1, padx=20, pady=20, sticky="ew", columnspan=2)
         #output monitoring for server
-        self.iperf_server_output = tk.Text(self.frame, height=15, width=70)
-        self.iperf_server_output.grid(row=8, column=3, padx=20, pady=20, sticky="nsew", columnspan=2)
-
-
-
-
+        self.iperf_server_output = tk.Text(self.frame, height=13, width=70)
+        self.iperf_server_output.grid(row=9, column=0, padx=20, pady=20, sticky="nsew", columnspan=3)
 
         #Vertical separator
         separator = ttk.Separator(self.frame, orient='vertical')
-        separator.grid(row=5, column=5, sticky='ns', rowspan=10, padx=5)  # rowspan ajustable según la altura deseada
+        separator.grid(row=7, column=3, sticky='ns', rowspan=9, padx=5)  # rowspan ajustable según la altura deseada
 
 
         #CLIENT SIDE  
 
         #Client IP address
-        self.entry_label_iperf_client = tk.Label(self.frame, text="Enter the IP address of the client for iperf3:")
-        self.entry_label_iperf_client.grid(row=5, column=6, padx=20, pady=20, sticky="nsew")
+        self.entry_label_iperf_client = tk.Label(self.frame, text="IP address of the client:")
+        self.entry_label_iperf_client.grid(row=7, column=4, padx=20, pady=20, sticky="nsew")
         self.entry_ip_client = tk.Entry(self.frame)
-        self.entry_ip_client.grid(row=5, column=7, padx=20, pady=20, sticky="nsew")
-
-        #Bitrate and packet size options
-        self.entry_label_bitrate_client = tk.Label(self.frame, text="Enter the sending bit rate in Mbps:")
-        self.entry_label_bitrate_client.grid(row=6, column=6, padx=20, pady=20, sticky="nsew")
-        bitrate_options = ["1", "2", "3", "5", "10"]
-        self.entry_bitrate_client = ttk.Combobox(self.frame, values=bitrate_options)
-        self.entry_bitrate_client.grid(row=6, column=7, padx=20, pady=20, sticky="nsew")
-        self.entry_bitrate_client.set("10")
-        
-        iterations = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-        self.entry_iteration = ttk.Combobox(self.frame, values=iterations)
-        self.entry_iteration.grid(row=5, column=8, padx=20, pady=20, sticky="nsew")
-        self.entry_iteration.set("1")
-
-        packet_size_options = ["256", "1500"]
-        self.entry_packet_size = ttk.Combobox(self.frame, values=packet_size_options)
-        self.entry_packet_size.grid(row=6, column=8, padx=20, pady=20, sticky="nsew")
-        self.entry_packet_size.set("1500")
-
- 
-        #Downlink/Uplink traffic options
-        self.reverse_mode_var = tk.IntVar()
-        self.reverse_mode_checkbox = tk.Checkbutton(self.frame, text="Downlink Traffic", variable=self.reverse_mode_var, onvalue=1, offvalue=0, width=20)
-        self.reverse_mode_checkbox.grid(row=7, column=8, padx=10, pady=20, sticky="ew")
-
+        self.entry_ip_client.grid(row=7, column=5, padx=20, pady=20, sticky="nsew", columnspan=2)
         #Start iperf3 client
         self.iperf_client_button = tk.Button(self.frame, text="Generate iperf3 traffic", command=self.iperf3_client_ssh, width=20)
-        self.iperf_client_button.grid(row=7, column=6, padx=10, pady=20, sticky="ew")
-
+        self.iperf_client_button.grid(row=8, column=4, padx=10, pady=20, sticky="ew", columnspan=2)
         #Stop iperf3 client
         self.iperf_stop_client_button = tk.Button(self.frame, text="Stop traffic", command=self.stop_iperf3_client, width=20)
-        self.iperf_stop_client_button.grid(row=7, column=7, padx=10, pady=20, sticky="ew")
+        self.iperf_stop_client_button.grid(row=8, column=6, padx=10, pady=20, sticky="ew")
+        #Output monitoring for the client
+        self.iperf_client_output = tk.Text(self.frame, height=13, width=70)
+        self.iperf_client_output.grid(row=9, column=4, padx=20, pady=20, sticky="nsew", columnspan=3)
+
 
         
-
-        #Output monitoring for the client
-        self.iperf_client_output = tk.Text(self.frame, height=15, width=70)
-        self.iperf_client_output.grid(row=8, column=6, padx=20, pady=20, sticky="nsew", columnspan=3)
 
     def show(self):
         self.frame.grid()
@@ -212,7 +199,7 @@ class Iperf3_view(tk.Frame):
         bit_rate = self.entry_bitrate_client.get()
         packet_size = self.entry_packet_size.get()
         number_bytes = packet_size * 10000
-        number_blocks = 100
+        number_blocks = 500
         print(f"Packet size: {packet_size}")
         
         downlink_traffic = "-R" if self.reverse_mode_var.get() == 1 else ""
@@ -254,6 +241,7 @@ class Iperf3_view(tk.Frame):
 
     def capture_traffic_remote_ue(self, ssh, interface, remote_capture_file):
         """Captures the traffic using tshark in the remote ue device."""
+        interface = "tun_srsue"
         command = f"nohup tshark -i {interface} -w {remote_capture_file} > /dev/null 2>&1 & echo $!"
         stdout = SSHConnections.ssh_ue.execute_command(command)
         pid_ue = stdout.decode('utf-8').strip()
@@ -265,6 +253,7 @@ class Iperf3_view(tk.Frame):
 
     def capture_traffic_remote_core(self, ssh, interface, remote_capture_file):
         """Captures the traffic using tshark in the remote core device."""
+        interface = "ogstun"
         command = f"nohup tshark -i {interface} -w {remote_capture_file} > /dev/null 2>&1 & echo $!"
         stdout = SSHConnections.ssh_core.execute_command(command)
         pid_core = stdout.decode('utf-8').strip()
