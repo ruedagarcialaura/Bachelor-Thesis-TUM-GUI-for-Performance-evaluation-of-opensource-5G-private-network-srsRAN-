@@ -21,7 +21,7 @@ class Calculations_view(tk.Frame):
         bitrate_options = ["3", "4", "5", "10"]
         self.entry_bitrate_client = ttk.Combobox(self.frame, values=bitrate_options)
         self.entry_bitrate_client.grid(row=1, column=1, padx=20, pady=20, sticky="nsew")
-        self.entry_bitrate_client.set("10")
+        self.entry_bitrate_client.set("3")
 
         #Direction options
         self.entry_label_direction = tk.Label(self.frame, text="Enter the direction of the traffic:")
@@ -74,11 +74,18 @@ class Calculations_view(tk.Frame):
         self.input_throughput = tk.Text(self.frame, height=1, width=10)
         self.input_throughput.grid(row=3, column=4, padx=20, pady=20, sticky="nsew")
 
+        self.text_label_throughput_rx = tk.Label(self.frame, text="Throughput Rx (Mbps) ")
+        self.text_label_throughput_rx.grid(row=4, column=3, padx=20, pady=20, sticky="nsew")
+
+        self.input_throughput_rx = tk.Text(self.frame, height=1, width=10)
+        self.input_throughput_rx.grid(row=4, column=4, padx=20, pady=20, sticky="nsew")
+
         self.text_label_inter_arrival_time = tk.Label(self.frame, text="Inter Arrival Time (ms) ")
-        self.text_label_inter_arrival_time.grid(row=4, column=3, padx=20, pady=20, sticky="nsew")
+        self.text_label_inter_arrival_time.grid(row=5, column=3, padx=20, pady=20, sticky="nsew")
 
         self.input_inter_arrival_time = tk.Text(self.frame, height=1, width=10)    
-        self.input_inter_arrival_time.grid(row=4, column=4, padx=20, pady=20, sticky="nsew")
+        self.input_inter_arrival_time.grid(row=5, column=4, padx=20, pady=20, sticky="nsew")
+
 
     def show(self):
         self.frame.grid()
@@ -146,9 +153,15 @@ class Calculations_view(tk.Frame):
         arrival_times= []
         inter_arrival_times = []
         time_slot_tx_start = None
+
         bytes_sent = 0
         remaining_bytes = 0
         throughput_tx_per_second = []
+
+        bytes_received = 0
+        throughput_rx_per_second = []
+        remaining_bytes_rx = 0
+        time_slot_rx_start = None
         
         
 
@@ -212,6 +225,28 @@ class Calculations_view(tk.Frame):
                                 remaining_bytes = packet_length - (time_diff_sec_tx - 10) * (packet_length / time_diff_sec_tx)
                                 bytes_sent += packet_length - remaining_bytes
 
+                            #receiving throughput calculation
+                            if not time_slot_rx_start:
+                                time_slot_rx_start = float(receiver_pkt.sniff_timestamp)
+                            time_diff_sec_rx = (float(receiver_pkt.sniff_timestamp) - time_slot_rx_start) * 1000 #in milliseconds
+
+                            if (time_diff_sec_rx) >= 10: #miliseconds
+                                throughput_rx = ((bytes_sent * 8) / (time_diff_sec_rx / 1000)) / 1000000
+                                throughput_rx_per_second.append(throughput_rx)
+                                time_slot_rx_start = float(receiver_pkt.sniff_timestamp)
+                                bytes_received = 0
+
+                            packet_length = int(receiver_pkt.length)
+                            if time_diff_sec_rx < 10:
+                                if remaining_bytes_rx > 0:
+                                    bytes_received += remaining_bytes_rx
+                                    remaining_bytes_rx = 0
+                                else:
+                                    bytes_received += packet_length
+                            else:
+                                remaining_bytes_rx = packet_length - (time_diff_sec_rx - 10) * (packet_length / time_diff_sec_rx)
+                                bytes_received += packet_length - remaining_bytes_rx
+
                             if sender_seq == receiver_seq:
                                 print(f"Packets {sender_index} and {receiver_index} match")
 
@@ -266,7 +301,7 @@ class Calculations_view(tk.Frame):
         print("packet loss done")
 
 
-        #Throughput
+        #Sending Throughput
         average_throughput_tx = round(sum(throughput_tx_per_second) / len(throughput_tx_per_second), 4) if throughput_tx_per_second else None
         if throughput_tx_per_second:
             squared_diffs = [(x - average_throughput_tx) ** 2 for x in throughput_tx_per_second]
@@ -275,7 +310,18 @@ class Calculations_view(tk.Frame):
         else:
             variance_tp = None
             standard_deviation_tp = None
-        print("throughput done")
+        print("Sending throughput done")
+
+        #Receiving Throughput
+        average_throughput_rx = round(sum(throughput_rx_per_second) / len(throughput_rx_per_second), 4) if throughput_rx_per_second else None
+        if throughput_rx_per_second:
+            squared_diffs = [(x - average_throughput_rx) ** 2 for x in throughput_rx_per_second]
+            variance_tp_rx = sum(squared_diffs) / len(throughput_rx_per_second)
+            standard_deviation_tp_rx = round(variance_tp_rx ** 0.5, 4)
+        else:
+            variance_tp_rx = None
+            standard_deviation_tp_rx = None
+        print("Receiving throughput done")
 
 
         #Inter arrival time
@@ -298,14 +344,17 @@ class Calculations_view(tk.Frame):
         print(f"Packet loss saved in file")
         self.save_throughput_tx_values(sender_pcap_path, throughput_tx_per_second, average_throughput_tx, standard_deviation_tp)
         print(f"Sending Throughput saved in file")
+        self.save_throughput_rx_values(sender_pcap_path, throughput_rx_per_second, average_throughput_rx, standard_deviation_tp_rx)
+        print(f"Receiving Throughput saved in file")
         self.save_inter_arrival_time_values(sender_pcap_path, inter_arrival_times, inter_arrival_time_average, standard_deviation_iat)
         print(f"Inter arrival times saved in file")
 
         #Stdout
         print(f"Average Latency: {average_latency} miliseconds, Standard deviation: {standard_deviation}  Lost Packets: {lost_packets}, Packet Loss Percentage: {packet_loss_percentage}%")
         print(f"Average inter arrival time: {inter_arrival_time_average} and its standard deviation: {standard_deviation_iat}, Average Sending Throughput: {average_throughput_tx} Mbps and its standard deviation: {standard_deviation_tp} Mbps")
+        print(f"Average Receiving Throughput: {average_throughput_rx} Mbps and its standard deviation: {standard_deviation_tp_rx} Mbps")
 
-        return average_latency, packet_loss_percentage, average_throughput_tx, inter_arrival_time_average
+        return average_latency, packet_loss_percentage, average_throughput_tx, average_throughput_rx, inter_arrival_time_average
                 
     def calculate(self):
         entry_bitrate_client = self.entry_bitrate_client.get()
@@ -318,6 +367,7 @@ class Calculations_view(tk.Frame):
         self.input_packet_loss.delete('1.0', tk.END)
         self.input_throughput.delete('1.0', tk.END)
         self.input_inter_arrival_time.delete('1.0', tk.END)
+        self.input_throughput_rx.delete('1.0', tk.END)
 
         sender_base = "core" if entry_direction == "downlink" else "ue"
         receiver_base = "ue" if entry_direction == "downlink" else "core"
@@ -329,7 +379,7 @@ class Calculations_view(tk.Frame):
     
         try:
             print("Calculating...")
-            average_latency, packet_loss_percentage, average_throughput_tx, inter_arrival_time_average = self.get_metric_values(sender_pcap_path, receiver_pcap_path)
+            average_latency, packet_loss_percentage, average_throughput_tx, average_throughput_rx, inter_arrival_time_average = self.get_metric_values(sender_pcap_path, receiver_pcap_path)
             if sender_pcap_path == None or receiver_pcap_path == None:
                 messagebox.showerror("Error", "The pcap files couldn't be found. Please try again.")
             elif average_latency == None:
@@ -340,6 +390,8 @@ class Calculations_view(tk.Frame):
                 self.input_packet_loss.see(tk.END)
                 self.input_throughput.insert(tk.END, 0)
                 self.input_throughput.see(tk.END)
+                self.input_throughput_rx.insert(tk.END, 0)
+                self.input_throughput_rx.see(tk.END)
                 self.input_inter_arrival_time.insert(tk.END, 0)
                 self.input_inter_arrival_time.see(tk.END)
                 
@@ -351,6 +403,8 @@ class Calculations_view(tk.Frame):
                 self.input_packet_loss.see(tk.END)
                 self.input_throughput.insert(tk.END, average_throughput_tx)
                 self.input_throughput.see(tk.END)
+                self.input_throughput_rx.insert(tk.END, average_throughput_rx)
+                self.input_throughput_rx.see(tk.END)
                 self.input_inter_arrival_time.insert(tk.END, inter_arrival_time_average)
                 self.input_inter_arrival_time.see(tk.END)
         except Exception as e:
@@ -382,7 +436,7 @@ class Calculations_view(tk.Frame):
         file_name = os.path.basename(sender_pcap_path)
         if file_name.startswith("ue_") or file_name.startswith("core_"):
             file_name = file_name.split("_", 1)[1]
-        base_file_name = re.sub(r'_\d+\.pcap$', '', file_name)
+        base_file_name = re.sub(r'\.pcap$', '', file_name)
         packet_loss_file_name = f"{base_file_name}_packet_loss.txt"
 
         folder_name = "packet_loss"
@@ -390,7 +444,7 @@ class Calculations_view(tk.Frame):
             os.makedirs(folder_name)
         packet_loss_file_path = os.path.join(folder_name, packet_loss_file_name)
 
-        with open(packet_loss_file_path, 'a') as packet_loss_file:
+        with open(packet_loss_file_path, 'w') as packet_loss_file:
             packet_loss_file.write(f"Packet loss for {file_name}\n")
             packet_loss_file.write(f"The number of packets received out of {sender_index} packets sent is {receiver_index} \n")
             packet_loss_file.write(f"The number of lost packets is: {lost_packets} and this corresponds to {packet_loss_percentage}%\n")
@@ -418,6 +472,29 @@ class Calculations_view(tk.Frame):
             throughput_file.write(f"The standard deviation is: {standard_deviation_tp} Mbps\n")
             throughput_file.write('\n')
 
+    def save_throughput_rx_values(self, sender_pcap_path, throughput_rx_per_second, average_throughput_rx, standard_deviation_tp_rx):
+
+        file_name = os.path.basename(sender_pcap_path)
+        if file_name.startswith("ue_") or file_name.startswith("core_"):
+            file_name = file_name.split("_", 1)[1]
+        base_file_name = re.sub(r'\.pcap$', '', file_name)
+        throughput_file_name = f"{base_file_name}_rx_throughput.txt"
+
+        folder_name = "throughput_rx"
+        if not os.path.exists(folder_name):
+            os.makedirs(folder_name)
+        throughput_file_path = os.path.join(folder_name, throughput_file_name)
+
+        with open(throughput_file_path, 'w') as throughput_file:
+            throughput_file.write(f"Receiving Throughput for {file_name}\n")
+            throughput_file.write('\n'.join(str(throughput) for throughput in throughput_rx_per_second))
+            throughput_file.write('\n')
+            throughput_file.write('\n')
+            throughput_file.write(f"The average throughput is: {average_throughput_rx} Mbps\n")
+            throughput_file.write(f"The standard deviation is: {standard_deviation_tp_rx} Mbps\n")
+            throughput_file.write('\n')
+
+
     def save_inter_arrival_time_values(self, sender_pcap_path, inter_arrival_times, inter_arrival_time_average, inter_arrival_time_standard_deviation):
         
         file_name = os.path.basename(sender_pcap_path)
@@ -426,7 +503,7 @@ class Calculations_view(tk.Frame):
         base_file_name = re.sub(r'\.pcap$', '', file_name)
         inter_arrival_time_file_name = f"{base_file_name}_inter_arrival_times.txt"
 
-        folder_name = "inter_arrival_time"
+        folder_name = "inter_arrival_times"
         if not os.path.exists(folder_name):
             os.makedirs(folder_name)
         inter_arrival_time_file_path = os.path.join(folder_name, inter_arrival_time_file_name)

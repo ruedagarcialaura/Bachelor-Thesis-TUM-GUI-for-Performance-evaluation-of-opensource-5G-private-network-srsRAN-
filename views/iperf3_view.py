@@ -199,7 +199,7 @@ class Iperf3_view(tk.Frame):
         bit_rate = self.entry_bitrate_client.get()
         packet_size = self.entry_packet_size.get()
         number_bytes = packet_size * 10000
-        number_blocks = 500
+        number_blocks = 1000
         print(f"Packet size: {packet_size}")
         
         downlink_traffic = "-R" if self.reverse_mode_var.get() == 1 else ""

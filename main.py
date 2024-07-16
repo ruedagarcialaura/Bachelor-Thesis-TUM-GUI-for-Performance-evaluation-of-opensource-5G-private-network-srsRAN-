@@ -1,6 +1,4 @@
 import tkinter as tk
-#from tkinter import font as tkFont
-#from tkinter import ttk
 
 # Import the views
 from views.GUI_view import GUI_view
@@ -8,16 +6,16 @@ from views.home_view import Home_view
 from views.iperf3_view import Iperf3_view
 from views.calculations_view import Calculations_view
 from views.results_view import Results_view
-from views.packet_loss_view import Packet_loss_view
+from views.plots_per_packet import Plots_per_packet
 
-from views.graph import Wireshark_capture
+
 
 
 class GUI:
     def __init__(self, root):
         self.root = root
-        self.root.columnconfigure(0, weight=1)  # Hace que la columna central se expanda
-        self.root.rowconfigure(1, weight=1)  # Hace que la fila debajo de los botones se expanda
+        self.root.columnconfigure(0, weight=1)  
+        self.root.rowconfigure(1, weight=1)  
         self.root.title("srsRAN Measurements")
         self.root.geometry("1250x600")
                 
@@ -35,10 +33,10 @@ class GUI:
         self.button3.grid(row=0, column=2, padx=0, pady=0, sticky="nsew")
         self.button4 = tk.Button(self.frame, text="Calculations", command=self.show_calculations_view)
         self.button4.grid(row=0, column=3, padx=0, pady=0, sticky="nsew")
-        self.button5 = tk.Button(self.frame, text="Results", command=self.show_results_view)
+        self.button5 = tk.Button(self.frame, text="Iterations Plots", command=self.show_results_view)
         self.button5.grid(row=0, column=4, padx=0, pady=0, sticky="nsew")
-        #self.button6 = tk.Button(self.frame, text="Packet Loss", command=self.show_packet_loss_view)
-        #self.button6.grid(row=0, column=5, padx=0, pady=0, sticky="nsew")
+        self.button6 = tk.Button(self.frame, text="Plots Per Packet", command=self.show_plots_per_packet)
+        self.button6.grid(row=0, column=5, padx=0, pady=0, sticky="nsew")
         
         
         
@@ -48,7 +46,7 @@ class GUI:
         self.GUI_view = GUI_view(self.root)
         self.iperf3_view = Iperf3_view(self.root)
         self.results_view = Results_view(self.root)
-        self.packet_loss_view = Packet_loss_view(self.root)
+        self.plots_per_packet = Plots_per_packet(self.root)
         
         #Show the main view at startup
         self.show_GUI_view()
@@ -77,9 +75,9 @@ class GUI:
         self.hide_all_views()
         self.results_view.show()   
 
-    def show_packet_loss_view(self):
+    def show_plots_per_packet(self):
         self.hide_all_views()
-        self.packet_loss_view.show()
+        self.plots_per_packet.show()
 
     def hide_all_views(self):
         self.GUI_view.hide()
@@ -87,7 +85,7 @@ class GUI:
         self.iperf3_view.hide()
         self.calculations_view.hide()
         self.results_view.hide()
-        self.packet_loss_view.hide()
+        self.plots_per_packet.hide()
 
     
    
