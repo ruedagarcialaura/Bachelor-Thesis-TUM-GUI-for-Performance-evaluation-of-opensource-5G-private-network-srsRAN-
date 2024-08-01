@@ -26,16 +26,16 @@ class GUI:
 
         # Create buttons to switch between views
         self.button1 = tk.Button(self.frame, text="GUI", command=self.show_GUI_view)
-        self.button1.grid(row=0, column=0, padx=0, pady=0, sticky="nsew")
+        #self.button1.grid(row=0, column=0, padx=0, pady=0, sticky="nsew")
         self.button2 = tk.Button(self.frame, text="Connect to the network", command=self.show_home_view) # font=customFont, bg=buttonColor, fg=textColor)
         self.button2.grid(row=0, column=1, padx=0, pady=0, sticky="nsew")
         self.button3 = tk.Button(self.frame, text="Capture  traffic", command=self.show_iperf3_view)
         self.button3.grid(row=0, column=2, padx=0, pady=0, sticky="nsew")
         self.button4 = tk.Button(self.frame, text="Calculations", command=self.show_calculations_view)
         self.button4.grid(row=0, column=3, padx=0, pady=0, sticky="nsew")
-        self.button5 = tk.Button(self.frame, text="Iterations Plots", command=self.show_results_view)
+        self.button5 = tk.Button(self.frame, text="Iterations Plot", command=self.show_results_view)
         self.button5.grid(row=0, column=4, padx=0, pady=0, sticky="nsew")
-        self.button6 = tk.Button(self.frame, text="Plots Per Packet", command=self.show_plots_per_packet)
+        self.button6 = tk.Button(self.frame, text="Per-Packet Plot", command=self.show_plots_per_packet)
         self.button6.grid(row=0, column=5, padx=0, pady=0, sticky="nsew")
         
         

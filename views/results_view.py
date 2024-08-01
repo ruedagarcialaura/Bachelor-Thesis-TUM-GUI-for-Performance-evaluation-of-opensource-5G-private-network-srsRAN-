@@ -40,11 +40,11 @@ class Results_view(tk.Frame):
         self.metric_combobox.set("Latency")
 
 
-        self.button = tk.Button(self.frame, text="Show Plotted Data", command=self.show_plots)
+        self.button = tk.Button(self.frame, text="PLOT", command=self.show_plots)
         self.button.grid(row=1, column=6, padx=20, pady=5, sticky="ew")
 
         #save button
-        self.save_button = tk.Button(self.frame, text="Save plots", command=self.save_plots)
+        self.save_button = tk.Button(self.frame, text="SAVE", command=self.save_plots)
         self.save_button.grid(row=1, column=7, padx=20, pady=5, sticky="ew")
 
         #self.save_button2 = tk.Button(self.frame, text="Save TP comparison", command=self.save_plot_comparison)

@@ -48,11 +48,11 @@ class Plots_per_packet(tk.Frame):
         self.entry_iteration.set("1")
 
         #plot button
-        self.plot_button = tk.Button(self.frame, text="Plot", command=self.plot_4_metrics_gui)
+        self.plot_button = tk.Button(self.frame, text="PLOT", command=self.plot_4_metrics_gui)
         self.plot_button.grid(row=1, column=6, padx=20, pady=20, sticky="nsew")
 
         #save button
-        self.save_button = tk.Button(self.frame, text="Save plots", command=self.save_plots)
+        self.save_button = tk.Button(self.frame, text="SAVE", command=self.save_plots)
         self.save_button.grid(row=1, column=7, padx=20, pady=5, sticky="ew")
 
         
