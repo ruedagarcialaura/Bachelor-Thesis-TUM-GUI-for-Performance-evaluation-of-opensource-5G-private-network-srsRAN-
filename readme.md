@@ -8,7 +8,7 @@ The GUI serves as a measurement tool that allows users to obtain data on four ke
 
 <div style="display: flex; justify-content: space-around;">
   <img src="GUI_figure.jpg" alt="GUI Screenshot" width="400"/>
-  <img src="per-packet-plot-view.png" alt="Plot View" width="400"/>
+  <img src="per-packet_plot_view.png" alt="Plot View" width="400"/>
 </div>
 
 ## Features
