@@ -6,7 +6,7 @@ This graphical user interface (GUI) was implemented by Laura Rueda García as pa
 
 The GUI serves as a measurement tool that allows users to obtain data on four key metrics: latency, throughput, packet loss, and inter-arrival time. This provides valuable insights into the performance of a 5G network.
 
-![GUI Screenshot](GUI_figure.jpg)
+<img src="GUI_figure.jpg" alt="GUI Screenshot" width="400"/>
 
 ## Features
 
