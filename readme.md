@@ -1,165 +1,37 @@
-# Título del Proyecto
+# GUI for Performance Evaluation of srsRAN
 
-Breve descripción del proyecto.
+This graphical user interface (GUI) was implemented by Laura Rueda García as part of a bachelor thesis titled "Performance Evaluation of srsRAN".
 
-## Requisitos
+## Purpose
 
-- Requisito 1
-- Requisito 2
-- Requisito 3
+The GUI serves as a measurement tool that allows users to obtain data on four key metrics: latency, throughput, packet loss, and inter-arrival time. This provides valuable insights into the performance of a 5G network.
 
-## Instalación
+![GUI Screenshot](GUI_figure.jpg)
 
-1. Clona el repositorio.
-2. Ejecuta el comando `npm install` para instalar las dependencias.
-3. Configura las variables de entorno en el archivo `.env`.
-4. Ejecuta el comando `npm start` para iniciar la aplicación.
+## Features
 
-## Uso
+- **Connect to 5G Network**: The GUI allows you to connect to your 5G network using SSH.
+- **Generate and Capture Traffic**: You can generate traffic on the network using iperf3 and capture it with Wireshark.
+- **Perform Calculations**: The GUI processes the information stored in the two .pcap files and calculates the average values of the key metrics.
+- **Visualize Results**: The results can be viewed in a more graphical or visual manner using boxplots and various graphs that show data packet by packet.
 
-Explica cómo utilizar tu proyecto y proporciona ejemplos de código si es necesario.
+## Views
 
-## Contribución
+The GUI consists of five main views:
 
-Si deseas contribuir a este proyecto, sigue estos pasos:
+1. **Connect to the Network**: Establish an SSH connection to the 5G network.
+2. **Capture Traffic**: Generate and capture network traffic using iperf3 and Wireshark.
+3. **Calculations**: Perform calculations on the captured data to obtain average values of the key metrics.
+4. **Iteration Plots**: View the results of the calculations in a graphical format.
+5. **Plot Per-Packet**: Visualize the data on a per-packet basis using detailed graphs.
 
-1. Haz un fork del repositorio.
-2. Crea una nueva rama (`git checkout -b feature/nueva-caracteristica`).
-3. Realiza los cambios necesarios y realiza un commit (`git commit -m 'Agrega nueva característica'`).
-4. Haz push a la rama (`git push origin feature/nueva-caracteristica`).
-5. Abre una Pull Request.
+## Usage
 
-## Licencia
+To use the GUI, follow these steps:
+1. **Connect to the Network**: Navigate to the "Connect to the Network" view and establish an SSH connection.
+2. **Capture Traffic**: Go to the "Capture Traffic" view to generate and capture network traffic.
+3. **Perform Calculations**: Move to the "Calculations" view to process the captured data and calculate the key metrics.
+4. **View Iteration Plots**: Check the "Iteration Plots" view to see the average values of the key metrics.
+5. **Plot Per-Packet**: Finally, use the "Plot Per-Packet" view to visualize the data on a per-packet basis.
 
-Indica la licencia bajo la cual se distribuye tu proyecto.
-
-## Contacto
-
-Si tienes alguna pregunta o sugerencia, no dudes en contactarme a través de [correo electrónico](correo@example.com) o [Twitter](https://twitter.com/tu_usuario).
-
-
-
-Para realizar las mediciones de latencia, throughput, packet loss e inter-arrival time en tu red 5G personal, puedes seguir estos pasos y usar las siguientes herramientas:
-
-### 1. **Preparación del Entorno**
-   
-   - **Conexión Remota:**
-     - **SSH:** Configura los PCs del UE, gNB y CORE para que acepten conexiones SSH. Esto te permitirá acceder y controlar remotamente los dispositivos sin necesidad de estar físicamente presente en la sala.
-     - **TMUX/Screen:** Utiliza herramientas como `tmux` o `screen` para mantener las sesiones SSH activas y poder desconectarte sin interrumpir los procesos en ejecución.
-   
-   - **Automatización:**
-     - **Python Scripts:** Usa Python junto con bibliotecas como `paramiko` para SSH y `subprocess` para ejecutar comandos y recopilar datos. Puedes crear una GUI simple utilizando `Tkinter` o una interfaz web ligera con `Flask`.
-
-### 2. **Herramientas de Medición**
-
-   - **Iperf3:**
-     - **Latencia y Throughput:** Configura `iperf3` para medir el throughput y latencia entre el UE y el CORE. `iperf3` puede funcionar en modo cliente-servidor, y te dará métricas como bitrate, jitter y pérdida de paquetes.
-     - **Packet Loss:** Iperf3 también reporta el número de datagramas perdidos, lo que te permite calcular la tasa de pérdida de paquetes.
-   
-   - **Ping:**
-     - **Latencia:** Usa el comando `ping` para medir la latencia. Ejecuta ping desde el UE al CORE y registra los tiempos de respuesta (RTT).
-
-   - **TCPDump/Wireshark:**
-     - **Inter-arrival Time y Packet Analysis:** Utiliza `tcpdump` para capturar tráfico en la interfaz de red y `Wireshark` para analizar los tiempos de llegada de los paquetes, jitter, y otros detalles.
-
-### 3. **Procedimiento Detallado**
-
-   **Paso 1: Configurar y ejecutar Iperf3**
-   
-   - **Servidor Iperf3 en CORE:**
-     ```bash
-     iperf3 -s
-     ```
-   
-   - **Cliente Iperf3 en UE:**
-     ```bash
-     iperf3 -c <CORE_IP> -u -b 10M -t 60
-     ```
-
-   Esto medirá el throughput y te dará estadísticas sobre la latencia y pérdida de paquetes.
-
-   **Paso 2: Ejecutar Ping para Latencia**
-
-   En el UE, ejecuta:
-   ```bash
-   ping <CORE_IP> -c 100
-   ```
-
-   Esto te dará la latencia promedio, mínima, máxima y desviación estándar.
-
-   **Paso 3: Capturar y analizar tráfico con Tcpdump**
-
-   - **Captura en el UE:**
-     ```bash
-     sudo tcpdump -i eth0 -w ue_capture.pcap
-     ```
-
-   - **Captura en el CORE:**
-     ```bash
-     sudo tcpdump -i eth0 -w core_capture.pcap
-     ```
-
-   - **Análisis con Wireshark:**
-     Abre los archivos .pcap en Wireshark y utiliza la funcionalidad de análisis de tiempo de llegada de paquetes.
-
-### 4. **Automatización y Recolección de Datos**
-
-   - **Python Script de Ejemplo:**
-     ```python
-     import paramiko
-     import subprocess
-     
-     def run_ssh_command(host, username, password, command):
-         ssh = paramiko.SSHClient()
-         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-         ssh.connect(host, username=username, password=password)
-         stdin, stdout, stderr = ssh.exec_command(command)
-         output = stdout.read().decode()
-         ssh.close()
-         return output
-     
-     ue_host = 'ue_ip'
-     core_host = 'core_ip'
-     username = 'your_username'
-     password = 'your_password'
-     
-     # Run iperf3 on UE
-     iperf_command = 'iperf3 -c {} -u -b 10M -t 60'.format(core_host)
-     iperf_output = run_ssh_command(ue_host, username, password, iperf_command)
-     print("Iperf3 Output:", iperf_output)
-     
-     # Run ping on UE
-     ping_command = 'ping {} -c 100'.format(core_host)
-     ping_output = run_ssh_command(ue_host, username, password, ping_command)
-     print("Ping Output:", ping_output)
-     
-     # Run tcpdump on UE
-     tcpdump_command = 'sudo tcpdump -i eth0 -w ue_capture.pcap'
-     tcpdump_output = run_ssh_command(ue_host, username, password, tcpdump_command)
-     print("Tcpdump Output:", tcpdump_output)
-     ```
-
-   - **Automatización con Crontab:**
-     Configura tareas en crontab para ejecutar estos scripts periódicamente si necesitas recopilar datos de manera continua.
-
-### 5. **Esquema del Procedimiento**
-
-1. **Configuración Inicial:**
-   - Establecer conexión SSH en todos los nodos.
-   - Instalar y configurar `iperf3`, `ping`, `tcpdump`.
-
-2. **Ejecución de Pruebas:**
-   - Ejecutar `iperf3` para throughput y latencia.
-   - Ejecutar `ping` para latencia detallada.
-   - Capturar tráfico con `tcpdump`.
-
-3. **Análisis de Datos:**
-   - Analizar archivos .pcap con Wireshark.
-   - Procesar y graficar resultados de `iperf3` y `ping` con Python.
-
-4. **Automatización:**
-   - Crear scripts en Python para ejecutar comandos y recopilar resultados.
-   - Usar crontab para programar la ejecución de scripts.
-
-Este procedimiento te permitirá obtener las mediciones necesarias para tu trabajo de fin de grado, con herramientas ampliamente usadas en la industria y métodos de análisis robustos.
-
+For more detailed information, please refer to the user manual or contact the author.

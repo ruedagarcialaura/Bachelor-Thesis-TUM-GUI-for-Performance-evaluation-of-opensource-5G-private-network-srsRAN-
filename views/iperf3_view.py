@@ -90,8 +90,7 @@ class Iperf3_view(tk.Frame):
 
         #Vertical separator
         separator = ttk.Separator(self.frame, orient='vertical')
-        separator.grid(row=7, column=3, sticky='ns', rowspan=9, padx=5)  # rowspan ajustable según la altura deseada
-
+        separator.grid(row=7, column=3, sticky='ns', rowspan=9, padx=5)  
 
         #CLIENT SIDE  
 
@@ -126,8 +125,8 @@ class Iperf3_view(tk.Frame):
         self.iperf_server_output.see(tk.END)
 
     def execute_iperf3_server_async(self):
-        #ip_address = self.entry_ip_server.get() 
-        ip_address = '10.45.0.1'
+        ip_address = self.entry_ip_server.get() 
+        #ip_address = '10.45.0.1'
         if ip_address:
             iperf_server_command = f"iperf3 -s -B {ip_address}"
             try: 
@@ -140,15 +139,15 @@ class Iperf3_view(tk.Frame):
                 self.iperf_server_output.insert(tk.END, f"Error: {e}\n")
                 self.iperf_server_output.see(tk.END)
         else:
-            # Mensaje de error si no se ha introducido ninguna dirección IP
+            # Error message if no IP address has been entered
             self.iperf_server_output.insert(tk.END, "Please enter an IP address.\n")
 
     def iperf3_server_ssh(self):
-        # Ejecutar en un hilo separado para evitar bloquear la GUI
+        # Execute in a separate thread to avoid blocking the GUI
         threading.Thread(target=self.execute_iperf3_server_async).start()
 
     def stop_iperf3_server(self):
-        stop_command = "pkill iperf3"  # Este comando detiene todos los procesos de iperf3
+        stop_command = "pkill iperf3"  # This command stops all iperf3 processes
         try:
             if SSHConnections.ssh_core is not None:
                SSHConnections.ssh_core.execute_command_async(stop_command)
@@ -176,7 +175,7 @@ class Iperf3_view(tk.Frame):
             if not os.path.exists(folder_name):
                 os.makedirs(folder_name)
             
-            # Solo guardar el output para uplink desde el lado del cliente
+            # Only save the outpput for uplink traffic in the client side
             if direction == "uplink":
                 filename = os.path.join(folder_name, f"{direction}_{packet_size}bytes_{bit_rate}Mbps_{iteration}.txt")
 
@@ -193,12 +192,12 @@ class Iperf3_view(tk.Frame):
             self.iperf_output_accumulator = ""
      
     def execute_iperf3_client_async(self):
-        ip_address_server = '10.45.0.1'
-        #ip_address_server = self.entry_ip_server.get() 
+        #ip_address_server = '10.45.0.1'
+        ip_address_server = self.entry_ip_server.get() 
         ip_address = self.entry_ip_client.get()
         bit_rate = self.entry_bitrate_client.get()
         packet_size = self.entry_packet_size.get()
-        number_bytes = packet_size * 10000
+        #number_bytes = packet_size * 10000
         number_blocks = 1000
         print(f"Packet size: {packet_size}")
         
@@ -217,16 +216,16 @@ class Iperf3_view(tk.Frame):
                 self.iperf_client_output.insert(tk.END, f"Error: {e}\n")
                 self.iperf_client_output.see(tk.END)
         else:
-            # Mensaje de error si no se ha introducido ninguna dirección IP
+            # Error message if no IP address has been entered
             self.iperf_client_output.insert(tk.END, "Please enter an IP address.\n")
             #bit_rate = 10
 
     def iperf3_client_ssh(self):
-        # Ejecutar en un hilo separado para evitar bloquear la GUI
+        # Execute in a separate thread to avoid blocking the GUI
         threading.Thread(target=self.execute_iperf3_client_async).start()
 
     def stop_iperf3_client(self):
-        stop_command = "pkill iperf3"  # Este comando detiene todos los procesos de iperf3
+        stop_command = "pkill iperf3"  # This command stops all iperf3 processes
         try:
             if SSHConnections.ssh_ue is not None:
                SSHConnections.ssh_ue.execute_command_async(stop_command)
@@ -267,8 +266,8 @@ class Iperf3_view(tk.Frame):
         interface_core = self.entry_interface_core.get()   
         #interface_gnb = self.entry_interface_gnb.get()   
         try:         
-           self.capture_traffic_remote_ue(SSHConnections.ssh_ue, interface_ue, "ue.pcap") #"enp1s0"
-           self.capture_traffic_remote_core(SSHConnections.ssh_core, interface_core, "core.pcap") #"enp0s31f6"
+           self.capture_traffic_remote_ue(SSHConnections.ssh_ue, interface_ue, "ue.pcap") 
+           self.capture_traffic_remote_core(SSHConnections.ssh_core, interface_core, "core.pcap") 
            #self.capture_traffic_remote_gnb(SSHConnections.ssh_gnb, "??????", "gnb.pcap")
            messagebox.showinfo("Success", "Capture started")
         except Exception as e:
@@ -315,12 +314,12 @@ class Iperf3_view(tk.Frame):
 
     
     def download_file_ue(self, ssh, remote_path, local_path):
-        """Descarga un archivo desde el dispositivo remoto."""
+        """Downloads a file from the remote device."""
         SSHConnections.ssh_ue.download_file(remote_path, local_path)
 
     
     def download_file_core(self, ssh, remote_path, local_path):
-        """Descarga un archivo desde el dispositivo remoto."""
+        """Downloads a file from the remote device."""
         SSHConnections.ssh_core.download_file(remote_path, local_path)
         
            

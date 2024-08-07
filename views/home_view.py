@@ -89,20 +89,17 @@ class Home_view(tk.Frame):
 
     #ssh methods
     def initialize_ssh_connection_ue(self, hostname, username, password):
-        #self.ssh_ue = SSHClient(hostname, 22, username, password)
-        self.ssh_ue = SSHClient("10.162.149.122", 22, "laura", "chaparral")
+        self.ssh_ue = SSHClient(hostname, 22, username, password)
         self.ssh_ue.connect()
         SSHConnections.ssh_ue = self.ssh_ue
 
     def initialize_ssh_connection_gnb(self, hostname, username, password):
-        #self.ssh_gnb = SSHClient(hostname, 22, username, password)
-        self.ssh_gnb = SSHClient("10.162.149.121", 22, "laura", "chaparral")
+        self.ssh_gnb = SSHClient(hostname, 22, username, password)
         self.ssh_gnb.connect()
         SSHConnections.ssh_gnb = self.ssh_gnb
 
     def initialize_ssh_connection_core(self, hostname, username, password):
-        #self.ssh_core = SSHClient(hostname, 22, username, password)
-        self.ssh_core = SSHClient("10.162.149.143", 22, "laura", "chaparral")
+        self.ssh_core = SSHClient(hostname, 22, username, password)
         self.ssh_core.connect()
         SSHConnections.ssh_core = self.ssh_core
 

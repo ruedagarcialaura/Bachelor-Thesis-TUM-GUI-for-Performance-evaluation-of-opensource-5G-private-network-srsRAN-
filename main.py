@@ -25,7 +25,7 @@ class GUI:
         self.frame.grid(row=0, sticky="ew")     
 
         # Create buttons to switch between views
-        self.button1 = tk.Button(self.frame, text="GUI", command=self.show_GUI_view)
+        #self.button1 = tk.Button(self.frame, text="GUI", command=self.show_GUI_view)
         #self.button1.grid(row=0, column=0, padx=0, pady=0, sticky="nsew")
         self.button2 = tk.Button(self.frame, text="Connect to the network", command=self.show_home_view) # font=customFont, bg=buttonColor, fg=textColor)
         self.button2.grid(row=0, column=1, padx=0, pady=0, sticky="nsew")
@@ -43,21 +43,21 @@ class GUI:
         # Create the views
         self.home_view = Home_view(self.root)
         self.calculations_view = Calculations_view(self.root)
-        self.GUI_view = GUI_view(self.root)
+        #self.GUI_view = GUI_view(self.root)
         self.iperf3_view = Iperf3_view(self.root)
         self.results_view = Results_view(self.root)
         self.plots_per_packet = Plots_per_packet(self.root)
         
         #Show the main view at startup
-        self.show_GUI_view()
+        self.show_home_view()
         
 
     #Methods to show each view
 
     
-    def show_GUI_view(self):
-        self.hide_all_views()
-        self.GUI_view.show()
+    #def show_GUI_view(self):
+       # self.hide_all_views()
+       # self.GUI_view.show()
 
     def show_home_view(self):
         self.hide_all_views()
@@ -80,7 +80,7 @@ class GUI:
         self.plots_per_packet.show()
 
     def hide_all_views(self):
-        self.GUI_view.hide()
+        #self.GUI_view.hide()
         self.home_view.hide()
         self.iperf3_view.hide()
         self.calculations_view.hide()
