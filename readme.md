@@ -4,7 +4,7 @@ This graphical user interface (GUI) was implemented by Laura Rueda García as pa
 
 ## Purpose
 
-The GUI serves as a measurement tool that allows users to obtain data on four key metrics: latency, throughput, packet loss, and inter-arrival time. This provides valuable insights into the performance of a 5G network.
+The GUI serves as a measurement tool that allows users to obtain data on four key metrics: latency, throughput, packet loss, and inter-arrival time. This provides valuable insights into the performance of a 5G network.The way it works is the following: traffic is generated in both uplink and downlink directions from User Equipment to Core Network and viceversa, and then it is captured to be examined. After some calculations the user can obtain plotted results of the key metrics for his/her private 5G network.
 
 <div style="display: flex; justify-content: space-around; align-items: center;">
   <img src="GUI_figure.jpg" alt="GUI Screenshot" height="300"/>
@@ -13,9 +13,9 @@ The GUI serves as a measurement tool that allows users to obtain data on four ke
 
 ## Features
 
-- **Connect to 5G Network**: The GUI allows you to connect to your 5G network using SSH.
+- **Connect to 5G Network**: The GUI allows you to connect to your 5G network using SSH. It connects to the three computers of the network: UE, gNB and Core Network PCs. But only UE and Core are accessed and used.
 - **Generate and Capture Traffic**: You can generate traffic on the network using iperf3 and capture it with Wireshark.
-- **Perform Calculations**: The GUI processes the information stored in the two .pcap files and calculates the average values of the key metrics.
+- **Perform Calculations**: The GUI processes the information stored in the two .pcap files, as showed in the picture above on the left, and calculates the average values of the key metrics.
 - **Visualize Results**: The results can be viewed in a more graphical or visual manner using boxplots and various graphs that show data packet by packet.
 
 ## Views
@@ -31,10 +31,42 @@ The GUI consists of five main views:
 ## Usage
 
 To use the GUI, follow these steps:
-1. **Connect to the Network**: Navigate to the "Connect to the Network" view and establish an SSH connection.
-2. **Capture Traffic**: Go to the "Capture Traffic" view to generate and capture network traffic.
-3. **Perform Calculations**: Move to the "Calculations" view to process the captured data and calculate the key metrics.
-4. **View Iteration Plots**: Check the "Iteration Plots" view to see the average values of the key metrics.
+1. **Connect to the Network**: Navigate to the "Connect to the Network" view, enter your credentials to connect to the three remote PCs. This is for example, your Ubuntu user name and password. Enter the IP address of the three PCs.
+2. **Capture Traffic**: Go to the "Capture Traffic" view. 
+First you need to fill the parameters:
+
+- Fill the network interface names, these correspond to the ones for the User plane traffic (UE: tun_srsue and core: ogstun).
+- Fill the parameters choice for the traffic that you want to send (Bit rate, packet size, traffic direction, and iteration number (1-10))
+-Fill the IPv4 adresses needed to send traffic. Core IP address is always 10.45.0.1 and UE's IP address changes everytime it gets a PDU session, and it will be something like 10.45.0.x.
+
+Once all the parameters are filled, it is time to start wireshark and generate the traffic:
+
+- Start wireshark on both Core Network and UE PCs by clicking on "start capture" button.
+- Start the "server side" for the iperf3 traffic generation by clicking on "Start Server"
+- Start the traffic by clicking on "Generate traffic".
+
+Once the iperf3 traffic is done, the trace will appear on the view in the blank boxes.
+
+- Click on "Stop wireshark" and all traffic will be saved to two .pcap files in your local directory.
+- Click on "Stop server" if you are not going to send any more traffic. 
+
+The button for "Stop traffic" is not always needed, only in the cases of the UE disconnecting from the network before the iperf3 traffic generation has finished. This happens frequently when sending traffic in the downlink direction.
+
+3. **Perform Calculations**: Move to the "Calculations" view. 
+
+- Here choose the parameter for the combination of parameters of the traffic you saved, and the iteration number.
+- Click on "Calculate" and the GUI will take those 2 .pcap files and do the calculations. On screen you will see the average values for all the key metrics. 
+
+Besides, for each metric, a file with all the values (for each packet) will also be generated for future plotting. Only the first 10,000 packets from each pcap will be used for the calculations. 
+
+4. **View Iteration Plots**: Check the "Iteration Plots" view. This view is useful if you generated more than one iteration. Here you can see the differences between each iteration. 
+
+- Choose the parameters again to see the results of your generated traffic.
+- In the "metric" box you can choose between: latency, packet loss, inter arrival time, all metrics and a comparation for sending and receiving throughput.
+
+
 5. **Plot Per-Packet**: Finally, use the "Plot Per-Packet" view to visualize the data on a per-packet basis.
 
-For more detailed information, please refer to the user manual or contact the author.
+
+This GUI is very useful but it can also not be very intuitive. If you have any questions: ruedagarcialaura1502@gmail.com 
+
