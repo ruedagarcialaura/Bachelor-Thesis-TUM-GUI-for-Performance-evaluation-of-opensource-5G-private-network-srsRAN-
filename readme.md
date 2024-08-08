@@ -4,12 +4,14 @@ This graphical user interface (GUI) was implemented by Laura Rueda García as pa
 
 ## Purpose
 
-The GUI serves as a measurement tool that allows users to obtain data on four key metrics: latency, throughput, packet loss, and inter-arrival time. This provides valuable insights into the performance of a 5G network.The way it works is the following: traffic is generated in both uplink and downlink directions from User Equipment to Core Network and viceversa, and then it is captured to be examined. After some calculations the user can obtain plotted results of the key metrics for his/her private 5G network.
+The GUI serves as a measurement tool that allows users to obtain data on four key metrics: latency, throughput, packet loss, and inter-arrival time. This provides valuable insights into the performance of a 5G network.
 
-<div style="display: flex; justify-content: space-around; align-items: center;">
-  <img src="GUI_figure.jpg" alt="GUI Screenshot" height="300"/>
-  <img src="per-packet_plot_view.png" alt="Plot View" height="300"/>
-</div>
+The way it works is the following: traffic is generated in both uplink and downlink directions from User Equipment to Core Network and viceversa, and then it is captured to be examined.
+
+After some calculations the user can obtain plotted results of the key metrics for his/her private 5G network, as shown in the picture below to the right.
+
+<img src="GUI_figure.jpg" alt="GUI Screenshot" height="300"/>
+  
 
 ## Features
 
@@ -32,6 +34,9 @@ The GUI consists of five main views:
 
 To use the GUI, follow these steps:
 1. **Connect to the Network**: Navigate to the "Connect to the Network" view, enter your credentials to connect to the three remote PCs. This is for example, your Ubuntu user name and password. Enter the IP address of the three PCs.
+
+<img src="ssh_view.png.jpg" alt="connect" width="400"/>
+
 2. **Capture Traffic**: Go to the "Capture Traffic" view. 
 First you need to fill the parameters:
 
@@ -52,6 +57,8 @@ Once the iperf3 traffic is done, the trace will appear on the view in the blank 
 
 The button for "Stop traffic" is not always needed, only in the cases of the UE disconnecting from the network before the iperf3 traffic generation has finished. This happens frequently when sending traffic in the downlink direction.
 
+<img src="capture_view.png" alt="capture" width="400"/>
+
 3. **Perform Calculations**: Move to the "Calculations" view. 
 
 - Here choose the parameter for the combination of parameters of the traffic you saved, and the iteration number.
@@ -59,13 +66,20 @@ The button for "Stop traffic" is not always needed, only in the cases of the UE 
 
 Besides, for each metric, a file with all the values (for each packet) will also be generated for future plotting. Only the first 10,000 packets from each pcap will be used for the calculations. 
 
+<img src="calculations_view.png" alt="calculate" width="400"/>
+
 4. **View Iteration Plots**: Check the "Iteration Plots" view. This view is useful if you generated more than one iteration. Here you can see the differences between each iteration. 
 
 - Choose the parameters again to see the results of your generated traffic.
 - In the "metric" box you can choose between: latency, packet loss, inter arrival time, all metrics and a comparation for sending and receiving throughput.
 
+<img src="iterations_plot_view.png" alt="iterations" width="400"/>
+
 
 5. **Plot Per-Packet**: Finally, use the "Plot Per-Packet" view to visualize the data on a per-packet basis.
+
+<img src="per-packet_plot_view.png" alt="per-packet" width="400"/>
+
 
 
 This GUI is very useful but it can also not be very intuitive. If you have any questions: ruedagarcialaura1502@gmail.com 
