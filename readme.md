@@ -31,7 +31,9 @@ To use the GUI, follow these steps:
 
 ## Connect to the Network:
 
- Navigate to the "Connect to the Network" view, enter your credentials to connect to the three remote PCs. This is for example, your Ubuntu user name and password. Enter the IP address of the three PCs.
+ - You need to use ssh (for example have ssh server installed in your three remote PCs and something OpenVPN in your local computer where you use the GUI).
+ - Navigate to the "Connect to the Network" view, enter your credentials to connect to the three remote PCs. This is for example, your Ubuntu user name and password. Enter the IP address of the three PCs.
+ - Click on "Connect".
 
 <img src="ssh_view.png" alt="connect" width="600"/>
 
@@ -45,14 +47,14 @@ Go to the "Capture Traffic" view. First you need to fill the parameters:
 
 Once all the parameters are filled, it is time to start wireshark and generate the traffic:
 
-- Start wireshark on both Core Network and UE PCs by clicking on "start capture" button.
-- Start the "server side" for the iperf3 traffic generation by clicking on "Start Server"
-- Start the traffic by clicking on "Generate traffic".
+- Start wireshark on both Core Network and UE PCs by clicking on "Begin to capture" button.
+- Start the server side for the iperf3 traffic generation by clicking on "Start Server"
+- Start the traffic by clicking on "Generate iperf3 traffic".
 
 Once the iperf3 traffic is done, the trace will appear on the view in the blank boxes.
 
-- Click on "Stop wireshark" and all traffic will be saved to two .pcap files in your local directory.
-- Click on "Stop server" if you are not going to send any more traffic. 
+- Click on "Stop capture" and all traffic will be saved to two .pcap files in your local directory.
+- Click on "Stop Server" if you are not going to send any more traffic. 
 
 The button for "Stop traffic" is not always needed, only in the cases of the UE disconnecting from the network before the iperf3 traffic generation has finished. This happens frequently when sending traffic in the downlink direction.
 
@@ -62,19 +64,21 @@ The button for "Stop traffic" is not always needed, only in the cases of the UE 
 
 Move to the "Calculations" view. 
 
-- Here choose the parameter for the combination of parameters of the traffic you saved, and the iteration number.
-- Click on "Calculate" and the GUI will take those 2 .pcap files and do the calculations. On screen you will see the average values for all the key metrics. 
+- Here choose the combination of parameters of the traffic you saved, don't forget the iteration number.
+- Click on "Calculate" and the GUI will take the 2 .pcap files (UE and Core) and do the calculations. Only the first 10,000 packets from each pcap will be used for the calculations.  
 
-Besides, for each metric, a file with all the values (for each packet) will also be generated for future plotting. Only the first 10,000 packets from each pcap will be used for the calculations. 
+On screen you will see the average values for all the key metrics. It takes a few minutes!!.
+
+Besides, for each metric, a file with all the values (for each packet) will also be generated for future plotting, and save in your local directory. 
 
 <img src="calculations_view.png" alt="calculate" width="600"/>
 
 ## View Iteration Plots:
 
- Check the "Iteration Plots" view. This view is useful if you generated more than one iteration. Here you can see the differences between each iteration. 
+ Check the "Iteration Plots" view. This view is useful if you generated traffic more than once, more than 1 iteration. Here you can see the differences between each iteration. 
 
 - Choose the parameters again to see the results of your generated traffic.
-- In the "metric" box you can choose between: latency, packet loss, inter arrival time, all metrics and a comparation for sending and receiving throughput.
+- In the "metric" box you can choose between: latency, packet loss, inter arrival time, all metrics and a comparison between sending and receiving throughput.
 
 <img src="iterations_plot_view.png" alt="iterations" width="600"/>
 
@@ -83,9 +87,10 @@ Besides, for each metric, a file with all the values (for each packet) will also
 
  Finally, use the "Plot Per-Packet" view to visualize the data on a per-packet basis.
 
+
 <img src="per-packet_plot_view.png" alt="per-packet" width="600"/>
 
 
 
-This GUI is very useful but it can also not be very intuitive. If you have any questions: ruedagarcialaura1502@gmail.com 
+This GUI is useful but it can also not be very intuitive. If you have any questions: ruedagarcialaura1502@gmail.com 
 
