@@ -92,5 +92,4 @@ Besides, for each metric, a file with all the values (for each packet) will also
 
 
 
-This GUI is useful but it can also not be very intuitive. If you have any questions: ruedagarcialaura1502@gmail.com 
 
